@@ -21,7 +21,7 @@ interface ChatSocketService {
     }
 
     sealed class Endpoints(val url: String) {
-        object ChatSocket: Endpoints("${BASE_URL}/chat-socket")
+        data object ChatSocket: Endpoints("${BASE_URL}/chat-socket")
     }
 
 }

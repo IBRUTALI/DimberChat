@@ -4,4 +4,5 @@
     <string name="join">Join</string>
     <string name="enter_message">Enter a message</string>
     <string name="send">Send</string>
+    <string name="search">Search</string>
 </resources>
