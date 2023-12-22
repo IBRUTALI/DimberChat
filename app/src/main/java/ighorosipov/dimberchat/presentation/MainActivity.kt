@@ -12,6 +12,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import ighorosipov.dimberchat.presentation.ui.components.TopBar
 import ighorosipov.dimberchat.presentation.ui.components.navigation.Navigation
 import ighorosipov.dimberchat.presentation.ui.components.navigation.Screen
+import ighorosipov.dimberchat.presentation.ui.components.navigation.USERNAME
 import ighorosipov.dimberchat.presentation.ui.theme.DimberChatTheme
 
 @AndroidEntryPoint
@@ -26,10 +27,13 @@ class MainActivity : ComponentActivity() {
                 val navBackStackEntry by navController.currentBackStackEntryAsState()
                 Scaffold(
                     topBar = {
-                        TopBar(navController = navController)
                         when (navBackStackEntry?.destination?.route) {
-                            Screen.ChatScreen.route, Screen.GroupListScreen.route, Screen.SearchScreen.route -> {
-
+                            "${Screen.ChatScreen.route}/{$USERNAME}", Screen.GroupListScreen.route, Screen.SearchScreen.route -> {
+                                TopBar(
+                                    navController = navController,
+                                    currentDestinationRoute = navBackStackEntry?.destination?.route,
+                                    currentDestinationLabel = navBackStackEntry?.destination?.label.toString()
+                                )
                             }
                         }
                     }

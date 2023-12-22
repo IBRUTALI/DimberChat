@@ -28,7 +28,7 @@ fun Navigation(
             )
         }
         composable(
-            route = "${Screen.UsernameScreen.route}/{$USERNAME}",
+            route = "${Screen.ChatScreen.route}/{$USERNAME}",
             arguments = listOf(
                 navArgument(name = USERNAME) {
                     type = NavType.StringType
